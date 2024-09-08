@@ -1,3 +1,7 @@
+queryFile=$1
+subjectFile=$2
+outputFile=$3
+
 blastn -query $1 -subject $2 -task blastn-short -outfmt "6 std qlen" -out raw_match
 awk '$3==100.000 && $4==$13' raw_match > $3
 rm raw_match
